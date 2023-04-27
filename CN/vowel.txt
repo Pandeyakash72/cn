@@ -1,0 +1,49 @@
+Program for implementing the TCP networking using Java programming
+Import java.io.*;
+Import java.net.*;
+Class tcpclient
+{
+Public static void main(String arg[]) throws Exception
+{
+Socket s=new Socket("localhost",2000);
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+OuputStream out=s.getOutputStream();
+System.out.println("Enter file name");
+String str=br.readLine();
+out.write((str+"\n").getBytes());
+BufferedReader br1=new BufferedReader(new InputStreamReader(s.getInputStream()));
+Str=br1.readLine();
+System.out.println("number of vowels in given file are:"+str);
+}
+}
+Import java.io.*;
+Import java.net.*;
+Class tcpserver
+{
+Public static void main(String arg[]) throws Exception
+{
+ServerSocket s1=new ServerSocket(2000);
+Socket s=s1.accept();
+BufferedReader br=new BufferedReader(new InputStreamReader(s.getInputStream()));
+String str=br.readLine();
+File f=new File(str);
+FileReader fi=new FileReader(f);
+int h,i=0;
+char b;
+while((h=fi.read()!=-)
+{
+b=(char) h;
+if((b=='a')||(b=='A')||(b=='e')||(b=='E')||(b=='I')||(b=='i ')||(b=='o')||(b=='O')||(b=='u')||(b=='U'))
+i++;
+}
+fi.close();
+OutputStream out=s.getOutputStream();
+out.write((i+"\n").getBytes());
+}
+}
+Output for the above program.
+Compilation of the program is done by the following command.
+C:\java tcpclient
+Enter file name:
+input.txt
+Number of vowels in given file name are: 3
